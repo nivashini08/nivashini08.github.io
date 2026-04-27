@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nivashini Thirumoorthy — Creative & UI/UX Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fdfcfb;
+  --off:#f8f5f2;
+  --cream:#f2ece4;
+  --pink:#e8728c;
+  --pink-light:#f9e0e6;
+  --pink-pale:#fdf2f5;
+  --pink-mid:#d4557a;
+  --rose:#c23b64;
+  --charcoal:#1a1614;
+  --ink:#2d2420;
+  --muted:#8a7570;
+  --border:#e8ddd8;
+  --border-pink:rgba(232,114,140,0.2);
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:hidden}
+
+/* ─── LOADER ─── */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 0.8s ease,visibility 0.8s ease}
+#loader.out{opacity:0;visibility:hidden}
+.loader-name{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,80px);font-weight:300;color:var(--white);letter-spacing:8px;font-style:italic}
+.loader-name span{color:var(--pink)}
+.loader-bar-wrap{width:160px;height:1px;background:rgba(255,255,255,0.12)}
+.loader-bar{height:1px;background:var(--pink);width:0%;animation:load 2s ease forwards}
+.loader-hint{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+@keyframes load{0%{width:0}100%{width:100%}}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);letter-spacing:1px}
+.nav-logo b{font-style:normal;font-weight:600;color:var(--pink)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--pink)}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 2s infinite;margin-left:8px;display:inline-block;vertical-align:middle}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;          /* full screen */
+  display: flex;
+  align-items: center;    /* vertical center */
+  justify-content: space-between;
+  padding: 0 5%;      /* prevents scroll */
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,var(--pink-pale) 0%,transparent 70%);pointer-events:none}
+
+.hero-left{padding:40px 56px;display:flex;flex-direction:column;justify-content:center;z-index:1;border-right:1px solid var(--border)}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+.eyebrow-line{width:40px;height:1px;background:var(--pink)}
+.eyebrow-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--pink)}
+
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,80px);font-weight:300;line-height:0.95;color:var(--charcoal);margin-bottom:6px}
+.hero h1 em{font-style:italic;color:var(--pink)}
+.hero-surname{font-family:'Syne',sans-serif;font-size:clamp(13px,1.5vw,17px);font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--muted);margin-bottom:36px;padding-top:10px}
+
+.hero-desc{font-size:15px;line-height:1.85;color:var(--muted);max-width:380px;margin-bottom:36px;font-weight:400}
+.hero-desc strong{color:var(--ink);font-weight:600}
+
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.htag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--muted);transition:all 0.2s}
+.htag.on{background:var(--pink);border-color:var(--pink);color:#fff}
+.htag:hover{border-color:var(--pink);color:var(--pink)}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--charcoal);color:#fff;padding:14px 32px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+.btn-primary:hover{background:var(--pink)}
+.btn-secondary{border:1px solid var(--border);color:var(--muted);padding:13px 28px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-secondary:hover{border-color:var(--pink);color:var(--pink)}
+
+.hero-right{z-index:1;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero-visual{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 40px}
+.hero-canvas {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.hc-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* center rings */
+  border-radius: 50%;
+  border: 1px solid var(--border-pink);
+}.hc-ring:nth-child(1) {
+  width: 200px;
+  height: 200px;
+}
+
+.hc-ring:nth-child(2) {
+  width: 280px;
+  height: 280px;
+}
+
+.hc-ring:nth-child(3) {
+  width: 360px;
+  height: 360px;
+}
+.hc-center {
+  position: absolute;     /* IMPORTANT */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.hc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);   /* zoom slightly */
+}
+.hc-initials{font-family:'Cormorant Garamond',serif;font-size:40px;font-style:italic;color:var(--pink-mid)}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.hero-stats {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.hstat {
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+  opacity: 0.95; /* subtle contrast boost */
+}
+
+.hstat:last-child {
+  border-right: none;
+}
+
+.hstat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 600;      /* darker & stronger */
+  color: #1a1614;        /* deep charcoal */
+  line-height: 1;
+}
+
+.hstat-num span {
+  color: var(--pink);    /* keep accent */
+}
+
+.hstat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;       /* slightly reduced for balance */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7a3a4a;        /* darker pink tone */
+  margin-top: 6px;
+  font-weight: 500;      /* improves readability */
+}
+/* ─── TICKER ─── */
+.ticker{background:var(--charcoal);padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:tick 22s linear infinite}
+.tick-item{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(253,252,251,0.35);padding:0 28px}
+.tick-sep{color:var(--pink);opacity:0.6;padding:0 2px}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─── SECTION SHARED ─── */
+.section{padding:80px 56px}
+.sec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--pink)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.1;color:var(--charcoal);margin-bottom:56px}
+.sec-title em{font-style:italic;color:var(--pink)}
+
+/* ─── ABOUT ─── */
+.about{background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
+.about-left .sec-title{margin-bottom:0}
+.about-left{position:relative}
+.about-left::after{content:'"';position:absolute;bottom:-40px;right:-20px;font-family:'Cormorant Garamond',serif;font-size:200px;color:var(--pink-light);line-height:1;pointer-events:none;z-index:0}
+
+.about-body{position:relative;z-index:1}
+.about-body p{font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:18px;font-weight:400}
+.about-body p strong{color:var(--ink)}
+.about-pull{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);line-height:1.6;border-left:2px solid var(--pink);padding:12px 24px;margin:28px 0;background:var(--pink-pale)}
+
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:var(--muted)}
+.chip.pink{background:var(--pink);border-color:var(--pink);color:#fff}
+.chip.dark{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
+
+/* ─── SKILLS ─── */
+.skills{background:var(--white)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));border:1px solid var(--border)}
+.skill-card{padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.2s}
+.skill-card:hover{background:var(--pink-pale)}
+.sk-icon{font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:var(--pink);margin-bottom:12px;line-height:1}
+.sk-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--charcoal);margin-bottom:4px}
+.sk-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px}
+.stag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);color:var(--muted)}
+
+/* ─── PROJECTS ─── */
+.projects{background:var(--cream);border-top:1px solid var(--border)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.proj-card{background:var(--white);overflow:hidden;position:relative;transition:transform 0.2s}
+.proj-card:hover{transform:translateY(-2px)}
+.proj-card.wide{grid-column:span 2}
+.proj-card.dark-card{background:var(--charcoal)}
+.proj-link {
+  display: inline-block;
+  margin: 10px 0 12px;
+  font-size: 13px;
+  color: #8c6be8; /* default color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.proj-link:hover {
+  color: #5a3ec8; /* darker shade on hover */
+  text-decoration: underline;
+}
+.proj-vis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d4557a; /* light background */
+}
+
+.proj-img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain; /* keeps logo shape */
+}
+.proj-body{padding:24px 28px 28px}
+.proj-num{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.dark-card .proj-num{color:rgba(253,252,251,0.3)}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:8px;line-height:1.2}
+.dark-card .proj-name{color:rgba(253,252,251,0.9)}
+.proj-desc{font-size:12.5px;line-height:1.75;color:var(--muted);margin-bottom:16px}
+.dark-card .proj-desc{color:rgba(253,252,251,0.4)}
+.ptags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px}
+.ptag.p{background:var(--pink-pale);color:var(--pink-mid);border:1px solid var(--border-pink)}
+.ptag.d{background:rgba(26,22,20,0.06);color:var(--muted);border:1px solid var(--border)}
+.ptag.dk{background:rgba(253,252,251,0.07);color:rgba(253,252,251,0.45);border:1px solid rgba(253,252,251,0.1)}
+
+/* project visuals */
+.vis-brand{background:linear-gradient(135deg,#fdf2f5 0%,#f9e0e6 100%)}
+.vis-edit{background:linear-gradient(135deg,#f0f0f5 0%,#e8e0f0 100%)}
+.vis-ui{background:linear-gradient(135deg,#f2ece4 0%,#ede4f5 100%)}
+.vis-dark{background:linear-gradient(135deg,#1a1614 0%,#251c1c 100%)}
+.vis-dash{background:linear-gradient(135deg,#fff8f9 0%,#fce8ee 100%)}
+
+/* ─── EXPERIENCE ─── */
+.experience{background:var(--off);border-top:1px solid var(--border)}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:130px 1fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-period{font-family:'DM Mono',monospace;font-size:9px;line-height:1.8;color:var(--muted);padding-top:4px}
+.exp-pip{display:flex;align-items:center;gap:8px;margin-top:12px}
+.edot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.edot.p{background:var(--pink)}
+.edot.d{background:var(--charcoal)}
+.eline{flex:1;height:1px;background:var(--border)}
+.exp-role{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.exp-co{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.exp-co.p{color:var(--pink)}
+.exp-co.d{color:var(--muted)}
+.exp-desc{font-size:13px;line-height:1.85;color:var(--muted);margin-bottom:14px}
+.exp-tools{display:flex;flex-wrap:wrap;gap:7px}
+.etag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);color:var(--muted)}
+
+/* ─── CONTACT ─── */
+.contact{background:var(--charcoal);padding:80px 56px}
+.contact .sec-label{color:var(--pink)}
+.contact .sec-label::before{background:var(--pink)}
+.contact .sec-title{color:var(--white)}
+.contact .sec-title em{color:var(--pink)}
+.c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:0}
+.c-card{background:#251c1c;padding:20px 22px;text-decoration:none;display:block;transition:background 0.2s;border-top:1px solid transparent}
+.c-card:hover{background:#2e2020;border-top-color:var(--pink)}
+.c-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(253,252,251,0.25);margin-bottom:7px}
+.c-val{font-size:12px;color:rgba(253,252,251,0.6);word-break:break-all;line-height:1.5}
+
+.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:24px;border-top:1px solid rgba(253,252,251,0.07)}
+.footer-copy{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(253,252,251,0.18)}
+.avail{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--pink)}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 2s infinite}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:780px){
+  nav{padding:0 24px}
+  .nav-links{gap:20px}
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }  .hero-canvas {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hc-center {
+    width: 100px;
+    height: 100px;
+  }
+    .hero-right{display:none}
+  .hero-left{padding:60px 28px}
+  .section{padding:60px 28px}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-left::after{display:none}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card.wide{grid-column:span 1}
+  .exp-item{grid-template-columns:1fr;gap:16px}
+  .c-grid{grid-template-columns:1fr 1fr}
+  .contact{padding:60px 28px}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:500px){
+  .nav-links{display:none}
+  .c-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-name">Nivashini<span> T.</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-hint">Loading portfolio</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><em>Nivashini</em> <b>T.</b></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="nav-dot"></span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Designer Intern</span>
+    </div>
+    <h1> <em>Nivashini</em></h1>
+    <div class="hero-surname">Thirumoorthy</div>
+    <p class="hero-desc">
+    Designing visuals that<strong> communicate,</strong> not just decorate.
+    </p>
+    <div class="hero-tags">
+      <span class="htag on">Graphic Design</span>
+      <span class="htag on">UI/UX</span>
+      <span class="htag">Photoshop</span>
+      <span class="htag">Figma</span>
+      <span class="htag">Frontend Developer</span>
+    </div>
+    <div class="hero-btns">
+      <a href="mailto:nivashinithirumoorthy@gmail.com" class="btn-primary">Gmail  ↗</a>
+      <a href="https://www.linkedin.com/in/nivashini-t" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+      <a href="https://github.com/nivashini08" target="_blank" class="btn-secondary">GitHub ↗</a>
+      <a href="https://www.behance.net/nivashithirumo" target="_blank" class="btn-secondary">Behance ↗</a>
+
+    </div>
+  </div>
+<div class="hero-right">
+  <div class="hero-visual">
+    <div class="hero-canvas">
+      <div class="hc-ring"></div>
+      <div class="hc-ring"></div>
+      <div class="hc-ring"></div>
+
+    <div class="hc-center">
+  <img src="images/Portfolio picture.png" alt="Profile" class="hc-image">
+</div>
+
+    </div>
+  </div>
+</div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">5<span>+</span></div>
+        <div class="hstat-label">Projects</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">2</div>
+        <div class="hstat-label">Internships</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">8<span>.41</span></div>
+        <div class="hstat-label">CGPA</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="tick-item">Brand Identity</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Editorial Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Digital Illustration</span><span class="tick-sep">✦</span>
+    <span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Photo Manipulation</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Typography</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Visual Storytelling</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Design Systems</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Procreate Art</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+    <!-- repeat for seamless loop -->
+    <span class="tick-item">Brand Identity</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Editorial Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Digital Illustration</span><span class="tick-sep">✦</span>
+    <span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Photo Manipulation</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Typography</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Visual Storytelling</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Design Systems</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Procreate Art</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="sec-label">My story</div>
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="sec-title">My <br>Journey into<em>Design </em></div>
+    </div>
+    <div class="about-body">
+      <p>My journey into design began with a curiosity about how digital experiences are created and how users interact with them. As a Computer Science student, I initially focused on functionality, but exploring UI/UX helped me understand the role of visuals in shaping user perception.<br>
+        I realized that design is not just about aesthetics—it’s about communicating ideas clearly. This led me to start creating social media creatives and UI layouts in Figma, where I learned the importance of structure, typography, and consistency.<br>
+      </p>
+      <div class="about-pull">
+"I design with intent—every visual should communicate, not just decorate."      </div>
+      <p>
+        Through my internships, I gained practical insights into design. At Reccsar, I learned to design for users with limited digital experience, focusing on real accessibility. At Tekfilo, I understood how clarity and structure— even in documentation—are essential parts of good design.<br>
+      </p>
+      <p>
+        I speak Tamil natively, English professionally, and Japanese at an elementary level — and I bring that multicultural lens to every visual system I build. I'm actively seeking a <strong>creative or graphic design internship</strong> where I can contribute, learn, and grow.
+      </p>
+      <div class="about-chips">
+        <span class="chip pink">Open to Internships</span>
+        <span class="chip dark">Tamil Nadu, India</span>
+        <span class="chip">Tamil · English · Japanese</span>
+        <span class="chip">KPR Institute of Engg. & Tech</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section" id="skills">
+  <div class="sec-label">What I bring</div>
+  <div class="sec-title">Creative <em>toolkit</em></div>
+  <div class="skills-grid">
+        <div class="skill-card">
+      <div class="sk-icon">Fg</div>
+      <div class="sk-name">Figma</div>
+      <div class="sk-sub">Advanced · UI/UX</div>
+      <div class="sk-tags">
+        <span class="stag">UI Design</span><span class="stag">Prototyping</span><span class="stag">Design Systems</span><span class="stag">Components</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="sk-icon">Ps</div>
+      <div class="sk-name">Photoshop</div>
+      <div class="sk-sub">Expert · Adobe Suite</div>
+      <div class="sk-tags">
+        <span class="stag">Compositing</span><span class="stag">Retouching</span><span class="stag">Photo Manipulation</span><span class="stag">Digital Painting</span>
+      </div>
+    </div>
+  <div class="skill-card">
+      <div class="sk-icon">&lt;/&gt;</div>
+      <div class="sk-name">Frontend</div>
+      <div class="sk-sub">Working Knowledge · Dev</div>
+      <div class="sk-tags">
+        <span class="stag">HTML5</span><span class="stag">CSS3</span><span class="stag">JavaScript</span><span class="stag">React</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="sk-icon">[Data]</div>
+      <div class="sk-name">Data Visualization</div>
+      <div class="sk-sub">Data storytelling</div>
+      <div class="sk-tags">
+        <span class="stag">Power BI</span><span class="stag">Tableau</span><span class="stag">Interactive dashboards</span><span class="stag">visual storytelling</span>
+      </div>
+    </div>
+      <div class="skill-card">
+      <div class="sk-icon">Prg</div>
+      <div class="sk-name">Programming</div>
+      <div class="sk-sub">Basic Knowledge</div>
+      <div class="sk-tags">
+        <span class="stag">Java</span><span class="stag">Data Structures</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="sec-label">Selected work</div>
+  <div class="sec-title">Things I've <em>made</em></div>
+  <div class="proj-grid">
+
+<div class="proj-card dark-card">
+  <div class="proj-vis vis">
+    <img src="images/vizha-logo.jpeg" alt="Vizha Logo" class="proj-img">
+  </div>
+
+  <div class="proj-body">
+    <div class="proj-num">01 — Branding & Website</div>
+    <div class="proj-name">Vizha Celebrates You</div>
+    <p class="proj-desc">
+      Contributed to logo design and visual identity, and assisted in designing the website layout. Focused on typography, color consistency, and structured content to create a clear and engaging user experience for a celebration-based platform.
+    </p>
+
+    <a href="https://www.vizhacelebratesyou.com/" target="_blank" class="proj-link">
+      Visit Website →
+    </a>
+
+    <div class="ptags">
+      <span class="ptag p">Figma</span>
+      <span class="ptag p">Photoshop</span>
+      <span class="ptag d">Branding</span>
+      <span class="ptag d">UI Design</span>
+    </div>
+  </div>
+</div>
+
+    <!-- 02 Editorial -->
+    <div class="proj-card dark-card">
+         <div class="proj-vis">
+    <img src="images/ArtandSoul.png" alt="Art and soul" class="proj-img">
+  </div>
+      <div class="proj-body">
+        <div class="proj-num">02 — Editorial Design</div>
+        <div class="proj-name">Art & Soul — Magazine</div>
+        <p class="proj-desc">Two-spread editorial layout for a conceptual culture magazine. Grid systems, type hierarchy, and image composition executed in Figma.</p>
+        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag p">Photoshop</span><span class="ptag d">Typography</span></div>
+      </div>
+    </div>
+
+    <!-- 03 Design System — wide -->
+    <div class="proj-card dark-card">
+        <div class="proj-vis">
+    <img src="images/FarmerUI.png" alt="Agriculture App UI" class="proj-img">
+  </div>
+      <div class="proj-body">
+        <div class="proj-num">03 — UI Design System</div>
+        <div class="proj-name">Agriculture App — Design System & UI Kit</div>
+        <p class="proj-desc">Scalable design system for a farmer-facing web app — reusable components, color palette, type scale, and accessibility-first layouts designed for low-literacy rural users. Figma + Photoshop mockups.</p>
+        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag d">Prototyping</span><span class="ptag d">Design System</span><span class="ptag d">UX Research</span></div>
+      </div>
+    </div>
+
+    <!-- 05 Railway UI -->
+    <div class="proj-card dark-card">
+  <div class="proj-vis vis">
+    <img src="images/RailwayUI.png" alt="Railway App UI" class="proj-img">
+  </div>
+      <div class="proj-body">
+        <div class="proj-num">04 — UI/UX Design</div>
+        <div class="proj-name">Railway Navigation UI</div>
+        <p class="proj-desc">High-fidelity Figma prototype for a transit navigation app. Prioritizes clarity, wayfinding, and first-time user accessibility.</p>
+        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag p">Prototyping</span><span class="ptag d">Accessibility</span></div>
+      </div>
+    </div>
+
+  </div>
+      <!-- 06 Dashboard -->
+    <div class="proj-card dark-card">
+  <div class="proj-vis">
+    <img src="images/Spotify Dashboard.png" alt="Spotify analysis Dashboard" class="proj-img">
+  </div>
+      <div class="proj-body">
+        <div class="proj-num">05— Data Visualization</div>
+        <div class="proj-name">Spotify Analysis Dashboard</div>
+        <p class="proj-desc">High-fidelity Figma prototype for a transit navigation app. Prioritizes clarity, wayfinding, and first-time user accessibility.</p>
+        <div class="ptags"><span class="ptag p">Power BI</span><span class="ptag d">Visualization</span><span class="ptag d">Data Storytelling</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience section" id="experience">
+  <div class="sec-label">Work history</div>
+  <div class="sec-title">Where I've <em>worked</em></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-period">
+        May – Jun 2025
+        <div class="exp-pip"><div class="edot p"></div><div class="eline"></div></div>
+      </div>
+      <div>
+        <div class="exp-role">UI/UX & Frontend Intern</div>
+        <div class="exp-co p">Reccsar Private Limited — Mumbai</div>
+        <p class="exp-desc">Designed Figma interfaces based on usability principles, built responsive HTML/CSS/JS UIs, improved accessibility for rural users across low-bandwidth conditions, and iterated designs through feedback cycles with the product team.</p>
+        <div class="exp-tools">
+          <span class="etag">Figma</span><span class="etag">HTML5</span><span class="etag">CSS3</span><span class="etag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">
+        Jan 2025
+        <div class="exp-pip"><div class="edot d"></div><div class="eline"></div></div>
+      </div>
+      <div>
+        <div class="exp-role">Business Analyst Intern</div>
+        <div class="exp-co d">Tekfilo Innovations — Tiruppur</div>
+        <p class="exp-desc">Structured ERP workflow data for the jewellery industry, authored SOPs to cut manual effort, and translated business operations into structured data flows for reporting. Learned that every process, like every UI, can always be made clearer.</p>
+        <div class="exp-tools">
+          <span class="etag">Excel</span><span class="etag">MS Word</span><span class="etag">Process Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="sec-label">Get in touch</div>
+  <div class="sec-title">Let's make<br>something <em>together.</em></div>
+  <div class="c-grid">
+    <a href="mailto:nivashinithirumoorthy@gmail.com" class="c-card">
+      <div class="c-label">Email</div>
+      <div class="c-val">nivashinithirumoorthy@gmail.com</div>
+    </a>
+    <a href="tel:+917358570810" class="c-card">
+      <div class="c-label">Phone</div>
+      <div class="c-val">+91 73585 70810</div>
+    </a>
+    <a href="https://www.linkedin.com/in/nivashini-t" target="_blank" class="c-card">
+      <div class="c-label">LinkedIn</div>
+      <div class="c-val">linkedin.com/in/nivashini-t</div>
+    </a>
+    <a href="https://github.com/nivashini08" target="_blank" class="c-card">
+      <div class="c-label">GitHub</div>
+      <div class="c-val">github.com/nivashini08</div>
+    </a>
+  </div>
+  <div class="footer">
+    <div class="footer-copy">© 2025 Nivashini Thirumoorthy · KPR Institute of Engineering & Technology</div>
+    <div class="avail"><span class="avail-dot"></span>Available for creative internships</div>
+  </div>
+</section>
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('out');
+  }, 2600);
+});
+
+// Staggered fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      observer.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.08});
+
+document.querySelectorAll('.proj-card, .skill-card, .exp-item, .c-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = `opacity 0.55s ease ${i * 0.04}s, transform 0.55s ease ${i * 0.04}s`;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
