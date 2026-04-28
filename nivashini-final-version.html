@@ -24,7 +24,8 @@
 }
 
 html{scroll-behavior:smooth}
-body{background:var(--white);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:hidden}
+body{background:var(--white);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:hidden;cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><path fill='%23e8728c' d='M4 2l16 10-6 1 2 6-2 1-2-6-6 6z'/></svg>") 0 0, auto}
+
 
 /* ─── LOADER ─── */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 0.8s ease,visibility 0.8s ease}
@@ -48,11 +49,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 100vh;          /* full screen */
+  min-height: 100vh;         
   display: flex;
-  align-items: center;    /* vertical center */
+  align-items: center;  
   justify-content: space-between;
-  padding: 0 5%;      /* prevents scroll */
+  padding: 0 5%;      
 }
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,var(--pink-pale) 0%,transparent 70%);pointer-events:none}
 
@@ -90,31 +91,31 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  /* center rings */
+  transform: translate(-50%, -50%); 
   border-radius: 50%;
   border: 1px solid var(--border-pink);
 }.hc-ring:nth-child(1) {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .hc-ring:nth-child(2) {
-  width: 280px;
-  height: 280px;
+  width: 380px;
+  height: 380px;
 }
 
 .hc-ring:nth-child(3) {
-  width: 360px;
-  height: 360px;
+  width: 460px;
+  height: 460px;
 }
 .hc-center {
-  position: absolute;     /* IMPORTANT */
+  position: relative; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -122,8 +123,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.1); 
-  opacity: 0.5;
+  opacity: 0.6;             
+  filter: brightness(80%);   
+  transition: 0.3s ease;
+}
+
+.hc-center:hover .hc-image {
+  opacity: 1;               
+}
+.hc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1); 
+    transition: 0.3s ease;
+  opacity: 0.35;  
 }
 .hc-initials{font-family:'Cormorant Garamond',serif;font-size:40px;font-style:italic;color:var(--pink-mid)}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
@@ -140,7 +154,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   text-align: center;
   padding: 0 20px;
   border-right: 1px solid var(--border);
-  opacity: 0.95; /* subtle contrast boost */
+  opacity: 0.95; 
 }
 
 .hstat:last-child {
@@ -150,23 +164,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 .hstat-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 38px;
-  font-weight: 600;      /* darker & stronger */
-  color: #1a1614;        /* deep charcoal */
+  font-weight: 600;     
+  color: #1a1614;       
   line-height: 1;
 }
 
 .hstat-num span {
-  color: var(--pink);    /* keep accent */
+  color: var(--pink);    
 }
 
 .hstat-label {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;       /* slightly reduced for balance */
+  font-size: 10px;    
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #7a3a4a;        /* darker pink tone */
+  color: #7a3a4a;    
   margin-top: 6px;
-  font-weight: 500;      /* improves readability */
+  font-weight: 500;  
 }
 /* ─── TICKER ─── */
 .ticker{background:var(--charcoal);padding:10px 0;overflow:hidden;white-space:nowrap}
@@ -182,22 +196,184 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.1;color:var(--charcoal);margin-bottom:56px}
 .sec-title em{font-style:italic;color:var(--pink)}
 
-/* ─── ABOUT ─── */
-.about{background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
-.about-left .sec-title{margin-bottom:0}
-.about-left{position:relative}
-.about-left::after{content:'"';position:absolute;bottom:-40px;right:-20px;font-family:'Cormorant Garamond',serif;font-size:200px;color:var(--pink-light);line-height:1;pointer-events:none;z-index:0}
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@300;400;500&display=swap');
 
-.about-body{position:relative;z-index:1}
-.about-body p{font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:18px;font-weight:400}
-.about-body p strong{color:var(--ink)}
-.about-pull{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);line-height:1.6;border-left:2px solid var(--pink);padding:12px 24px;margin:28px 0;background:var(--pink-pale)}
+.ab{
+  max-width:1100px;
+  margin:0 auto;
+  padding-top: 30px;
+}
 
-.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.chip{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:var(--muted)}
-.chip.pink{background:var(--pink);border-color:var(--pink);color:#fff}
-.chip.dark{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
+/* HERO */
+.ab-hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-bottom:1rem;
+    align-items:center;
+}
+
+.ab-hero-left{
+  padding-right:0.5rem;
+  border-right:1px solid var(--border);
+}
+
+.ab-label{
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+  border: #8a7570;
+}
+
+.ab-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.8rem;
+  line-height:1;
+  color:var(--ink);
+}
+
+.ab-name span{
+  font-style:italic;
+  color:var(--pink);
+}
+
+.ab-hero-right{
+  padding-left:0.5rem;
+  display:flex;
+  align-items:flex-end;
+}
+
+.ab-tagline{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.8;
+  border-left:2px solid var(--pink);
+  padding-left:1rem;
+}
+
+/* DIVIDER */
+.ab-divider{
+  height:1px;
+  background:var(--border);
+  margin-bottom:3rem;
+}
+
+/* CHAPTERS */
+.ab-chapters{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:2.5rem;
+}
+
+.ch{
+  padding:1.8rem;
+  border-right:1px solid var(--border);
+  transition:0.3s ease;
+}
+
+.ch:last-child{
+  border-right:none;
+}
+
+.ch:hover{
+  background:var(--pink-pale);
+}
+
+.ch-index{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:1rem;
+}
+
+.ch-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  color:var(--ink);
+  margin-bottom:0.6rem;
+}
+
+.ch-title em{
+  color:var(--pink);
+}
+
+.ch-body{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.ch.c1{
+  background: #fdf2f6; 
+}
+.ch.c2{
+  background: #f4f6fb; 
+}
+.ch.c3{
+  background: #f6f5f2; 
+}
+
+/* QUOTE */
+.about-pull{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;
+  font-style:italic;
+  color:var(--ink);
+  border-left:2px solid var(--pink);
+  padding:12px 20px;
+  margin:30px 0;
+  background:var(--pink-pale);
+}
+
+/* BOTTOM */
+.ab-bottom{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:3rem;
+  align-items:end;
+}
+
+.ab-cta{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;
+  color:var(--ink);
+}
+
+.ab-cta em{
+  color:var(--pink);
+}
+
+.ab-meta{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:flex-end;
+}
+
+.ab-meta-row{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.ab-meta-key{
+  font-size:10px;
+  text-transform:uppercase;
+  margin-right:8px;
+  color:var(--muted);
+}
+
+.ab-badge{
+  font-size:11px;
+  padding:6px 14px;
+  border-radius:50px;
+  background:var(--pink);
+  color:#fff;
+  margin-top:8px;
+}
 
 /* ─── SKILLS ─── */
 .skills{background:var(--white)}
@@ -212,8 +388,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 
 /* ─── PROJECTS ─── */
 .projects{background:var(--cream);border-top:1px solid var(--border)}
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.proj-card{background:var(--white);overflow:hidden;position:relative;transition:transform 0.2s}
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 1200px) {
+  .proj-grid {
+    column-count: 3;
+  }
+}
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .proj-card:hover{transform:translateY(-2px)}
 .proj-card.wide{grid-column:span 2}
 .proj-card.dark-card{background:var(--charcoal)}
@@ -221,27 +412,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   display: inline-block;
   margin: 10px 0 12px;
   font-size: 13px;
-  color: #8c6be8; /* default color */
+  color: #8c6be8; 
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .proj-link:hover {
-  color: #5a3ec8; /* darker shade on hover */
+  color: #5a3ec8;
   text-decoration: underline;
 }
 .proj-vis {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #d4557a; /* light background */
+  background: #d4557a; 
 }
 
 .proj-img {
   width: 100%;
-  height: 250px;
-  object-fit: contain; /* keeps logo shape */
+  height: 160px;  
+  object-fit: contain;
 }
 .proj-body{padding:24px 28px 28px}
 .proj-num{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -335,7 +526,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 </style>
 </head>
 <body>
-
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-name">Nivashini<span> T.</span></div>
@@ -442,32 +632,63 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 </div>
 
 <!-- ABOUT -->
-<section class="about section" id="about">
-  <div class="sec-label">My story</div>
-  <div class="about-inner">
-    <div class="about-left">
-      <div class="sec-title">My <br>Journey into<em> Design </em></div>
+<section class="ab" id="about">
+
+  <div class="ab-hero">
+    <div class="ab-hero-left">
+  <div class="sec-label">About me</div>
+      <div class="ab-name">
+        Design through<br><span>intention</span>
+      </div>
     </div>
-    <div class="about-body">
-      <p>My journey into design began with a curiosity about how digital experiences are created and how users interact with them. As a Computer Science student, I initially focused on functionality, but exploring UI/UX helped me understand the role of visuals in shaping user perception.<br>
-        I realized that design is not just about aesthetics—it’s about communicating ideas clearly. This led me to start creating social media creatives and UI layouts in Figma, where I learned the importance of structure, typography, and consistency.<br>
-      </p>
-      <div class="about-pull">
-"I design with intent—every visual should communicate, not just decorate."      </div>
-      <p>
-        Through my internships, I gained practical insights into design. At Reccsar, I learned to design for users with limited digital experience, focusing on real accessibility. At Tekfilo, I understood how clarity and structure— even in documentation—are essential parts of good design.<br>
-      </p>
-      <p>
-        I speak Tamil natively, English professionally, and Japanese at an elementary level — and I bring that multicultural lens to every visual system I build. I'm actively seeking a <strong>creative or graphic design internship</strong> where I can contribute, learn, and grow.
-      </p>
-      <div class="about-chips">
-        <span class="chip pink">Open to Internships</span>
-        <span class="chip dark">Tamil Nadu, India</span>
-        <span class="chip">Tamil · English · Japanese</span>
-        <span class="chip">KPR Institute of Engg. & Tech</span>
+
+    <div class="ab-hero-right">
+      <div class="ab-tagline">
+        I began with code, but stayed for people — understanding how design shapes what users feel, trust, and remember.
       </div>
     </div>
   </div>
+
+  <div class="ab-divider"></div>
+
+  <div class="ab-chapters">
+    <div class="ch c1">
+      <div class="ch-index">01 — Origin</div>
+      <div class="ch-title">From logic<br>to <em>empathy</em></div>
+      <div class="ch-body">
+        My journey started in Computer Science, where I learned to build systems that work. But over time, I became more curious about how those systems are experienced — how users think, navigate, and respond.
+      </div>
+    </div>
+
+    <div class="ch c2">
+      <div class="ch-index">02 — Craft</div>
+      <div class="ch-title">Visual<br><em>systems</em> thinking</div>
+      <div class="ch-body">
+        Design became my way of thinking. Through Figma, I explored layouts, hierarchy, and consistency — learning that every detail, from typography to spacing, communicates something.
+      </div>
+    </div>
+
+    <div class="ch c3">
+      <div class="ch-index">03 — Reality</div>
+      <div class="ch-title">Design for<br><em>real</em> people</div>
+      <div class="ch-body">
+        My internships shaped how I design today. At Reccsar, I focused on accessibility for first-time users. At Tekfilo, I learned that even documentation requires clarity — because structure is design.
+      </div>
+    </div>
+  </div>
+  <div class="ab-bottom">
+    <div class="ab-cta">
+      I’m seeking a <em>creative or UI/UX internship</em> where I can contribute, learn, and build meaningful experiences.
+    </div>
+
+    <div class="ab-meta">
+      <div class="ab-meta-row"><span class="ab-meta-key">Based in</span> Tamil Nadu, India</div>
+      <div class="ab-meta-row"><span class="ab-meta-key">Languages</span> Tamil · English · Japanese (basic)</div>
+      <div class="ab-meta-row"><span class="ab-meta-key">Education</span> KPR Institute of Engineering & Technology</div>
+      <div class="ab-badge">Open to internships</div>
+    </div>
+  </div>
+
 </section>
 
 <!-- SKILLS -->
@@ -588,7 +809,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
       </div>
     </div>
 
-  </div>
+  
       <!-- 06 Dashboard -->
     <div class="proj-card dark-card">
   <div class="proj-vis">
@@ -601,7 +822,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
         <div class="ptags"><span class="ptag p">Power BI</span><span class="ptag d">Visualization</span><span class="ptag d">Data Storytelling</span></div>
       </div>
     </div>
-
+</div>
   </div>
 </section>
 
@@ -693,6 +914,8 @@ document.querySelectorAll('.proj-card, .skill-card, .exp-item, .c-card').forEach
   el.style.transition = `opacity 0.55s ease ${i * 0.04}s, transform 0.55s ease ${i * 0.04}s`;
   observer.observe(el);
 });
+
+
 </script>
 </body>
 </html>
