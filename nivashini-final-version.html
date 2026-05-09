@@ -137,7 +137,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   object-fit: cover;
   transform: scale(1); 
     transition: 0.3s ease;
-  opacity: 0.35;  
+  opacity: 0.15;  
 }
 .hc-initials{font-family:'Cormorant Garamond',serif;font-size:40px;font-style:italic;color:var(--pink-mid)}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
@@ -377,7 +377,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 
 /* ─── SKILLS ─── */
 .skills{background:var(--white)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));border:1px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(280px,1fr));border:1px solid var(--border)}
 .skill-card{padding:28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.2s}
 .skill-card:hover{background:var(--pink-pale)}
 .sk-icon{font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:var(--pink);margin-bottom:12px;line-height:1}
@@ -491,37 +491,124 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 .avail-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 2s infinite}
 
 /* ─── RESPONSIVE ─── */
+
 @media(max-width:780px){
-  nav{padding:0 24px}
-  .nav-links{gap:20px}
-  .hero {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }  .hero-canvas {
-    width: 280px;
-    height: 280px;
+
+  nav{
+    padding:10px 16px;
+    height:auto;
+    min-height:60px;
+    flex-wrap:wrap;
+    gap:10px;
   }
 
-  .hc-center {
-    width: 100px;
-    height: 100px;
+  .nav-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:100%;
+    gap:14px;
+    padding-bottom:8px;
   }
-    .hero-right{display:none}
-  .hero-left{padding:60px 28px}
-  .section{padding:60px 28px}
-  .about-inner{grid-template-columns:1fr;gap:40px}
-  .about-left::after{display:none}
-  .proj-grid{grid-template-columns:1fr}
-  .proj-card.wide{grid-column:span 1}
-  .exp-item{grid-template-columns:1fr;gap:16px}
-  .c-grid{grid-template-columns:1fr 1fr}
-  .contact{padding:60px 28px}
-  .hero-stats{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:500px){
-  .nav-links{display:none}
-  .c-grid{grid-template-columns:1fr}
+
+  .nav-links a{
+    font-size:8px;
+    letter-spacing:1.5px;
+  }
+
+  .hero{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .hero-left{
+    padding:60px 28px;
+    border-right:none;
+  }
+
+  .hero-right{
+    display:none;
+  }
+
+  .hero-canvas{
+    width:280px;
+    height:280px;
+  }
+
+  .hc-center{
+    width:100px;
+    height:100px;
+  }
+
+  .section{
+    padding:60px 28px;
+  }
+
+  .ab-hero{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .ab-hero-left{
+    border-right:none;
+    padding-right:0;
+  }
+
+  .ab-hero-right{
+    padding-left:0;
+  }
+
+  .ab-chapters{
+    grid-template-columns:1fr;
+  }
+
+  .ch{
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+
+  .ch:last-child{
+    border-bottom:none;
+  }
+
+  .ab-bottom{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .ab-meta{
+    align-items:flex-start;
+  }
+
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
+
+  .proj-grid{
+    grid-template-columns:1fr;
+  }
+
+  .proj-card.wide{
+    grid-column:span 1;
+  }
+
+  .exp-item{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .c-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact{
+    padding:60px 28px;
+  }
+
+  .hero-stats{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 </style>
 </head>
@@ -551,25 +638,25 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   <div class="hero-left">
     <div class="hero-eyebrow">
       <span class="eyebrow-line"></span>
-      <span class="eyebrow-text">Designer Intern</span>
+      <span class="eyebrow-text"> <!-- Designer Intern--> </span>  
     </div>
     <h1> <em>Nivashini</em></h1>
     <div class="hero-surname">Thirumoorthy</div>
     <p class="hero-desc">
-    Designing visuals that<strong> communicate,</strong> not just decorate.
+I enjoy building <strong>practical solutions </strong>that solve real-world problems through <strong>technology </strong> and <strong>design</strong>.
     </p>
     <div class="hero-tags">
-      <span class="htag on">Graphic Design</span>
-      <span class="htag on">UI/UX</span>
-      <span class="htag">Photoshop</span>
-      <span class="htag">Figma</span>
-      <span class="htag">Frontend Developer</span>
+      <span class="htag ">UI/UX</span>
+       <span class="htag">Web Developer</span>
+      <span class="htag ">Frontend Developer</span>
+      <span class="htag">Data Analytics</span>
+      <span class="htag">AIML</span>
     </div>
     <div class="hero-btns">
       <a href="mailto:nivashinithirumoorthy@gmail.com" class="btn-primary">Gmail  ↗</a>
-      <a href="https://www.linkedin.com/in/nivashini-t" target="_blank" class="btn-secondary">LinkedIn ↗</a>
-      <a href="https://github.com/nivashini08" target="_blank" class="btn-secondary">GitHub ↗</a>
-      <a href="https://www.behance.net/nivashithirumo" target="_blank" class="btn-secondary">Behance ↗</a>
+      <a href="https://www.linkedin.com/in/nivashini-t" target="_blank" class="btn-primary">LinkedIn ↗</a>
+      <a href="https://github.com/nivashini08" target="_blank" class="btn-primary">GitHub ↗</a>
+      <a href="https://www.behance.net/nivashithirumo" target="_blank" class="btn-primary">Behance ↗</a>
 
     </div>
   </div>
@@ -589,7 +676,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 </div>
     <div class="hero-stats">
       <div class="hstat">
-        <div class="hstat-num">5<span>+</span></div>
+        <div class="hstat-num">5</div>
         <div class="hstat-label">Projects</div>
       </div>
       <div class="hstat">
@@ -607,27 +694,31 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="tick-item">Brand Identity</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Editorial Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Digital Illustration</span><span class="tick-sep">✦</span>
-    <span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Photo Manipulation</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Typography</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Visual Storytelling</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Design Systems</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Procreate Art</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Python</span><span class="tick-sep">✦</span>
+<span class="tick-item">Flask</span><span class="tick-sep">✦</span>
+<span class="tick-item">Machine Learning</span><span class="tick-sep">✦</span>
+<span class="tick-item">Figma</span><span class="tick-sep">✦</span>
+<span class="tick-item">React</span><span class="tick-sep">✦</span>
+<span class="tick-item">Power BI</span><span class="tick-sep">✦</span>
+<span class="tick-item">SQL</span><span class="tick-sep">✦</span>
+<span class="tick-item">GitHub</span><span class="tick-sep">✦</span>
+<span class="tick-item">Firebase</span><span class="tick-sep">✦</span>
+<span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+<span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
+<span class="tick-item">VS Code</span><span class="tick-sep">✦</span>
     <!-- repeat for seamless loop -->
-    <span class="tick-item">Brand Identity</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Editorial Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Digital Illustration</span><span class="tick-sep">✦</span>
-    <span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Photo Manipulation</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Typography</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Visual Storytelling</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Design Systems</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Procreate Art</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+   <span class="tick-item">Python</span><span class="tick-sep">✦</span>
+<span class="tick-item">Flask</span><span class="tick-sep">✦</span>
+<span class="tick-item">Machine Learning</span><span class="tick-sep">✦</span>
+<span class="tick-item">Figma</span><span class="tick-sep">✦</span>
+<span class="tick-item">React</span><span class="tick-sep">✦</span>
+<span class="tick-item">Power BI</span><span class="tick-sep">✦</span>
+<span class="tick-item">SQL</span><span class="tick-sep">✦</span>
+<span class="tick-item">GitHub</span><span class="tick-sep">✦</span>
+<span class="tick-item">Firebase</span><span class="tick-sep">✦</span>
+<span class="tick-item">Frontend Dev</span><span class="tick-sep">✦</span>
+<span class="tick-item">UI/UX Design</span><span class="tick-sep">✦</span>
+<span class="tick-item">VS Code</span><span class="tick-sep">✦</span>
   </div>
 </div>
 
@@ -638,14 +729,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
     <div class="ab-hero-left">
   <div class="sec-label">About me</div>
       <div class="ab-name">
-        Design through<br><span>intention</span>
+        Designing & <br><span>Developing</span>
       </div>
     </div>
 
     <div class="ab-hero-right">
       <div class="ab-tagline">
-        I began with code, but stayed for people — understanding how design shapes what users feel, trust, and remember.
-      </div>
+I began with code, but grew through building solutions — exploring how technology, design, and user experience come together to create meaningful digital products.      </div>
     </div>
   </div>
 
@@ -653,33 +743,29 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
 
   <div class="ab-chapters">
     <div class="ch c1">
-      <div class="ch-index">01 — Origin</div>
-      <div class="ch-title">From logic<br>to <em>empathy</em></div>
+      <div class="ch-index">01 — Foundation</div>
+      <div class="ch-title">Building through<br> <em>logic and curiosity</em></div>
       <div class="ch-body">
-        My journey started in Computer Science, where I learned to build systems that work. But over time, I became more curious about how those systems are experienced — how users think, navigate, and respond.
-      </div>
+Started with Computer Science Engineering and developed interests in software development, AI/ML, data analytics, and UI/UX design through hands-on projects and continuous learning.     </div>
     </div>
 
     <div class="ch c2">
-      <div class="ch-index">02 — Craft</div>
-      <div class="ch-title">Visual<br><em>systems</em> thinking</div>
+      <div class="ch-index">02 — Exploration</div>
+      <div class="ch-title">Learning across<br><em>technology and design</em></div>
       <div class="ch-body">
-        Design became my way of thinking. Through Figma, I explored layouts, hierarchy, and consistency — learning that every detail, from typography to spacing, communicates something.
-      </div>
+I enjoy building solutions that are functional, user-friendly, and impactful — combining development, design, and problem-solving to create meaningful digital experiences.    </div>
     </div>
 
     <div class="ch c3">
-      <div class="ch-index">03 — Reality</div>
-      <div class="ch-title">Design for<br><em>real</em> people</div>
+      <div class="ch-index">03 — Growth</div>
+      <div class="ch-title">Turning ideas<br><em>real projects</em></div>
       <div class="ch-body">
-        My internships shaped how I design today. At Reccsar, I focused on accessibility for first-time users. At Tekfilo, I learned that even documentation requires clarity — because structure is design.
-      </div>
+Through internships and academic projects, I gained experience in development, collaboration, documentation, and building practical technology solutions.  </div>
     </div>
   </div>
   <div class="ab-bottom">
     <div class="ab-cta">
-      I’m seeking a <em>creative or UI/UX internship</em> where I can contribute, learn, and build meaningful experiences.
-    </div>
+Currently seeking opportunities to learn, contribute, and grow as a fresher in the tech industry. </div>
 
     <div class="ab-meta">
       <div class="ab-meta-row"><span class="ab-meta-key">Based in</span> Tamil Nadu, India</div>
@@ -690,139 +776,198 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
   </div>
 
 </section>
-
 <!-- SKILLS -->
 <section class="skills section" id="skills">
   <div class="sec-label">What I bring</div>
-  <div class="sec-title">Creative <em>toolkit</em></div>
+  <div class="sec-title">Technical <em>toolkit</em></div>
+
   <div class="skills-grid">
-        <div class="skill-card">
+
+    <div class="skill-card">
+      <div class="sk-icon">Py</div>
+      <div class="sk-name">Python & AI/ML</div>
+      <div class="sk-sub">Projects · Machine Learning</div>
+      <div class="sk-tags">
+        <span class="stag">Python</span>
+        <span class="stag">Machine Learning</span>
+        <span class="stag">Scikit-learn</span>
+        <span class="stag">Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
       <div class="sk-icon">Fg</div>
       <div class="sk-name">Figma</div>
-      <div class="sk-sub">Advanced · UI/UX</div>
+      <div class="sk-sub">UI/UX · Design</div>
       <div class="sk-tags">
-        <span class="stag">UI Design</span><span class="stag">Prototyping</span><span class="stag">Design Systems</span><span class="stag">Components</span>
+        <span class="stag">UI Design</span>
+        <span class="stag">Wireframing</span>
+        <span class="stag">Prototyping</span>
+        <span class="stag">Components</span>
       </div>
     </div>
+
     <div class="skill-card">
-      <div class="sk-icon">Ps</div>
-      <div class="sk-name">Photoshop</div>
-      <div class="sk-sub">Expert · Adobe Suite</div>
-      <div class="sk-tags">
-        <span class="stag">Compositing</span><span class="stag">Retouching</span><span class="stag">Photo Manipulation</span><span class="stag">Digital Painting</span>
-      </div>
-    </div>
-  <div class="skill-card">
       <div class="sk-icon">&lt;/&gt;</div>
       <div class="sk-name">Frontend</div>
-      <div class="sk-sub">Working Knowledge · Dev</div>
+      <div class="sk-sub">Development · Web</div>
       <div class="sk-tags">
-        <span class="stag">HTML5</span><span class="stag">CSS3</span><span class="stag">JavaScript</span><span class="stag">React</span>
+        <span class="stag">HTML5</span>
+        <span class="stag">CSS3</span>
+        <span class="stag">JavaScript</span>
+        <span class="stag">React</span>
       </div>
     </div>
+
     <div class="skill-card">
-      <div class="sk-icon">[Data]</div>
-      <div class="sk-name">Data Visualization</div>
-      <div class="sk-sub">Data storytelling</div>
+      <div class="sk-icon">[DB]</div>
+      <div class="sk-name">Data & Analytics</div>
+      <div class="sk-sub">Visualization · Insights</div>
       <div class="sk-tags">
-        <span class="stag">Power BI</span><span class="stag">Tableau</span><span class="stag">Interactive dashboards</span><span class="stag">visual storytelling</span>
+        <span class="stag">Power BI</span>
+        <span class="stag">SQL</span>
+        <span class="stag">Dashboards</span>
+        <span class="stag">Data Visualization</span>
       </div>
     </div>
-      <div class="skill-card">
+
+    <div class="skill-card">
       <div class="sk-icon">Prg</div>
       <div class="sk-name">Programming</div>
-      <div class="sk-sub">Basic Knowledge</div>
+      <div class="sk-sub">Core Concepts</div>
       <div class="sk-tags">
-        <span class="stag">Java</span><span class="stag">Data Structures</span>
+        <span class="stag">Java</span>
+        <span class="stag">C</span>
+        <span class="stag">Data Structures</span>
+        <span class="stag">Problem Solving</span>
       </div>
     </div>
+
   </div>
 </section>
-
 <!-- PROJECTS -->
 <section class="projects section" id="projects">
   <div class="sec-label">Selected work</div>
-  <div class="sec-title">Things I've <em>made</em></div>
+  <div class="sec-title">Things I've <em>built</em></div>
+
   <div class="proj-grid">
 
-<div class="proj-card dark-card">
-  <div class="proj-vis vis">
-    <img src="images/vizha-logo.jpeg" alt="Vizha Logo" class="proj-img">
-  </div>
-
-  <div class="proj-body">
-    <div class="proj-num">01 — Branding & Website</div>
-    <div class="proj-name">Vizha Celebrates You</div>
-    <p class="proj-desc">
-      Contributed to logo design and visual identity, and assisted in designing the website layout. Focused on typography, color consistency, and structured content to create a clear and engaging user experience for a celebration-based platform.
-    </p>
-
-    <a href="https://www.vizhacelebratesyou.com/" target="_blank" class="proj-link">
-      Visit Website →
-    </a>
-
-    <div class="ptags">
-      <span class="ptag p">Figma</span>
-      <span class="ptag p">Photoshop</span>
-      <span class="ptag d">Branding</span>
-      <span class="ptag d">UI Design</span>
-    </div>
-  </div>
-</div>
-
-    <!-- 02 Editorial -->
+    <!-- 01 -->
     <div class="proj-card dark-card">
-         <div class="proj-vis">
-    <img src="images/ArtandSoul.png" alt="Art and soul" class="proj-img">
-  </div>
+      <div class="proj-vis vis">
+        <img src="images/vizha-logo.jpeg" alt="Vizha Logo" class="proj-img">
+      </div>
+
       <div class="proj-body">
-        <div class="proj-num">02 — Editorial Design</div>
-        <div class="proj-name">Art & Soul — Magazine</div>
-        <p class="proj-desc">Two-spread editorial layout for a conceptual culture magazine. Grid systems, type hierarchy, and image composition executed in Figma.</p>
-        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag p">Photoshop</span><span class="ptag d">Typography</span></div>
+        <div class="proj-num">01 — Branding & Web Design</div>
+        <div class="proj-name">Vizha Celebrates You</div>
+
+        <p class="proj-desc">
+          Contributed to logo design, branding, and website layout creation for a celebration platform. Focused on visual consistency, typography, and user-friendly structure.
+        </p>
+
+        <a href="https://www.vizhacelebratesyou.com/" target="_blank" class="proj-link">
+          Visit Website →
+        </a>
+
+        <div class="ptags">
+          <span class="ptag p">Figma</span>
+          <span class="ptag p">Photoshop</span>
+          <span class="ptag d">Branding</span>
+          <span class="ptag d">UI Design</span>
+        </div>
       </div>
     </div>
 
-    <!-- 03 Design System — wide -->
+    <!-- 02 -->
     <div class="proj-card dark-card">
-        <div class="proj-vis">
-    <img src="images/FarmerUI.png" alt="Agriculture App UI" class="proj-img">
-  </div>
+      <div class="proj-vis">
+        <img src="images/DiabetesML.png" alt="Diabetes Prediction System" class="proj-img">
+      </div>
+
+      <div class="proj-body">
+        <div class="proj-num">02 — Machine Learning</div>
+        <div class="proj-name">Diabetes Prediction System</div>
+
+        <p class="proj-desc">
+          Developed a machine learning web application that predicts diabetes risk using health-related inputs. Built with Python, Flask, and Scikit-learn with a clean and responsive interface.
+        </p>
+
+        <div class="ptags">
+          <span class="ptag p">Python</span>
+          <span class="ptag p">Flask</span>
+          <span class="ptag d">Machine Learning</span>
+          <span class="ptag d">Scikit-learn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="proj-card dark-card">
+      <div class="proj-vis">
+        <img src="images/FarmerUI.png" alt="Agriculture App UI" class="proj-img">
+      </div>
+
       <div class="proj-body">
         <div class="proj-num">03 — UI Design System</div>
-        <div class="proj-name">Agriculture App — Design System & UI Kit</div>
-        <p class="proj-desc">Scalable design system for a farmer-facing web app — reusable components, color palette, type scale, and accessibility-first layouts designed for low-literacy rural users. Figma + Photoshop mockups.</p>
-        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag d">Prototyping</span><span class="ptag d">Design System</span><span class="ptag d">UX Research</span></div>
+        <div class="proj-name">Agriculture App UI Kit</div>
+
+        <p class="proj-desc">
+          Designed a scalable UI system for a farmer-focused application with reusable components, accessibility-focused layouts, and clean user flows.
+        </p>
+
+        <div class="ptags">
+          <span class="ptag p">Figma</span>
+          <span class="ptag d">Design System</span>
+          <span class="ptag d">UX Research</span>
+        </div>
       </div>
     </div>
 
-    <!-- 05 Railway UI -->
+    <!-- 04 -->
     <div class="proj-card dark-card">
-  <div class="proj-vis vis">
-    <img src="images/RailwayUI.png" alt="Railway App UI" class="proj-img">
-  </div>
+      <div class="proj-vis vis">
+        <img src="images/RailwayUI.png" alt="Railway Navigation UI" class="proj-img">
+      </div>
+
       <div class="proj-body">
         <div class="proj-num">04 — UI/UX Design</div>
-        <div class="proj-name">Railway Navigation UI</div>
-        <p class="proj-desc">High-fidelity Figma prototype for a transit navigation app. Prioritizes clarity, wayfinding, and first-time user accessibility.</p>
-        <div class="ptags"><span class="ptag p">Figma</span><span class="ptag p">Prototyping</span><span class="ptag d">Accessibility</span></div>
+        <div class="proj-name">Railway Navigation System</div>
+
+        <p class="proj-desc">
+          Designed a high-fidelity railway navigation interface focused on accessibility, wayfinding, and improving first-time user experience.
+        </p>
+
+        <div class="ptags">
+          <span class="ptag p">Figma</span>
+          <span class="ptag p">Prototyping</span>
+          <span class="ptag d">Accessibility</span>
+        </div>
       </div>
     </div>
 
-  
-      <!-- 06 Dashboard -->
+    <!-- 05 -->
     <div class="proj-card dark-card">
-  <div class="proj-vis">
-    <img src="images/Spotify Dashboard.png" alt="Spotify analysis Dashboard" class="proj-img">
-  </div>
+      <div class="proj-vis">
+        <img src="images/Spotify Dashboard.png" alt="Spotify Dashboard" class="proj-img">
+      </div>
+
       <div class="proj-body">
-        <div class="proj-num">05— Data Visualization</div>
+        <div class="proj-num">05 — Data Visualization</div>
         <div class="proj-name">Spotify Analysis Dashboard</div>
-        <p class="proj-desc">High-fidelity Figma prototype for a transit navigation app. Prioritizes clarity, wayfinding, and first-time user accessibility.</p>
-        <div class="ptags"><span class="ptag p">Power BI</span><span class="ptag d">Visualization</span><span class="ptag d">Data Storytelling</span></div>
+
+        <p class="proj-desc">
+          Built an interactive dashboard to analyze Spotify listening trends using data visualization and storytelling techniques in Power BI.
+        </p>
+
+        <div class="ptags">
+          <span class="ptag p">Power BI</span>
+          <span class="ptag d">Data Visualization</span>
+          <span class="ptag d">Dashboard Design</span>
+        </div>
       </div>
     </div>
-</div>
+
   </div>
 </section>
 
@@ -871,10 +1016,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
       <div class="c-label">Email</div>
       <div class="c-val">nivashinithirumoorthy@gmail.com</div>
     </a>
-    <a href="tel:+917358570810" class="c-card">
-      <div class="c-label">Phone</div>
-      <div class="c-val">+91 73585 70810</div>
-    </a>
     <a href="https://www.linkedin.com/in/nivashini-t" target="_blank" class="c-card">
       <div class="c-label">LinkedIn</div>
       <div class="c-val">linkedin.com/in/nivashini-t</div>
@@ -885,8 +1026,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,252,251,0.92);backdrop
     </a>
   </div>
   <div class="footer">
-    <div class="footer-copy">© 2025 Nivashini Thirumoorthy · KPR Institute of Engineering & Technology</div>
-    <div class="avail"><span class="avail-dot"></span>Available for creative internships</div>
+    <div class="footer-copy">© 2026 Nivashini Thirumoorthy · KPR Institute of Engineering & Technology</div>
+    <div class="avail"><span class="avail-dot"></span>Available for internships</div>
   </div>
 </section>
 
